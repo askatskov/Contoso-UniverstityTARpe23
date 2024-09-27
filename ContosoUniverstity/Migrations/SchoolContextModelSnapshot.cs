@@ -30,7 +30,7 @@ namespace ContosoUniverstity.Migrations
                     b.Property<int>("Credits")
                         .HasColumnType("int");
 
-                    b.Property<int?>("DepartmentId")
+                    b.Property<int?>("DepartmentID")
                         .HasColumnType("int");
 
                     b.Property<string>("Title")
@@ -39,7 +39,7 @@ namespace ContosoUniverstity.Migrations
 
                     b.HasKey("CourseID");
 
-                    b.HasIndex("DepartmentId");
+                    b.HasIndex("DepartmentID");
 
                     b.ToTable("Course", (string)null);
                 });
@@ -69,11 +69,11 @@ namespace ContosoUniverstity.Migrations
 
             modelBuilder.Entity("ContosoUniverstity.Models.Department", b =>
                 {
-                    b.Property<int>("DepartmentId")
+                    b.Property<int>("DepartmentID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DepartmentID"));
 
                     b.Property<string>("Aadress")
                         .IsRequired()
@@ -104,13 +104,13 @@ namespace ContosoUniverstity.Migrations
                     b.Property<int?>("StatusId")
                         .HasColumnType("int");
 
-                    b.HasKey("DepartmentId");
+                    b.HasKey("DepartmentID");
 
                     b.HasIndex("AdministratorId");
 
                     b.HasIndex("StatusId");
 
-                    b.ToTable("Department", (string)null);
+                    b.ToTable("Departments", (string)null);
                 });
 
             modelBuilder.Entity("ContosoUniverstity.Models.Enrollment", b =>
@@ -218,7 +218,7 @@ namespace ContosoUniverstity.Migrations
                 {
                     b.HasOne("ContosoUniverstity.Models.Department", null)
                         .WithMany("Courses")
-                        .HasForeignKey("DepartmentId");
+                        .HasForeignKey("DepartmentID");
                 });
 
             modelBuilder.Entity("ContosoUniverstity.Models.CourseAssignment", b =>

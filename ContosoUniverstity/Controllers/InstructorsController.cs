@@ -1,4 +1,5 @@
-﻿using ContosoUniverstity.Data;
+﻿
+using ContosoUniverstity.Data;
 using ContosoUniverstity.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -33,7 +34,7 @@ namespace ContosoUniverstity.Controllers
 
             if (id.HasValue)
             {
-                ViewData["InstructorId"] = id.Value;
+                ViewData["InstructorID"] = id.Value;
                 var instructor = vm.Instructors
                     .FirstOrDefault(i => i.Id == id.Value);
 

@@ -27,7 +27,7 @@ namespace ContosoUniverstity.Controllers
             {
                 return NotFound();
             }
-            string query = "SELECT * FROM Department WHERE DepartmentId = {0}";
+            string query = "SELECT * FROM Department WHERE DepartmentID = {0}";
             var department = await _context.Departments
                 .FromSqlRaw(query, id)
                 .Include(d => d.Administrator)
@@ -42,13 +42,13 @@ namespace ContosoUniverstity.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            ViewData["InstructorId"] = new SelectList(_context.Instructors, "Id", "FullName");
+            ViewData["InstructorID"] = new SelectList(_context.Instructors, "Id", "FullName");
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Budget,StartDate,RowVersion,InstructorId,Aadress,Status")] Department department)
+        public async Task<IActionResult> Create([Bind("Name,Budget,StartDate,RowVersion,InstructorID,Aadress,Status")] Department department)
         {
             if (ModelState.IsValid)
             {
@@ -56,8 +56,9 @@ namespace ContosoUniverstity.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewData["InstructorId"] = new SelectList(_context.Instructors, "Id", "FullName", department.InstructorId);
+            ViewData["InstructorID"] = new SelectList(_context.Instructors, "Id", "FullName", department.InstructorId);
             return View(department);
         }
     }
 }
+//llpasfsafasf

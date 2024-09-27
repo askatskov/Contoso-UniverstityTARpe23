@@ -6,7 +6,7 @@ namespace ContosoUniverstity.Models
     public class Department
     {
         [Key]
-        public int DepartmentId { get; set; }
+        public int DepartmentID { get; set; }
         [StringLength(50, MinimumLength = 3)]
         public string Name { get; set; }
         [DataType(DataType.Currency)]
@@ -19,7 +19,7 @@ namespace ContosoUniverstity.Models
         /*
          */
         public Student? Status { get; set; }
-        public string Aadress {  get; set; }
+        public string Aadress { get; set; }
         public int? InstructorId { get; set; }
         [Timestamp]
         public byte? RowVersion { get; set; }

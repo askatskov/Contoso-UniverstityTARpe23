@@ -9,6 +9,6 @@ namespace ContosoUniverstity.Models
         public InstructorExists? Instructor { get; set; }
         [StringLength(50)]
         [Display(Name = "Office Location")]
-        public string Location { get; set;}
+        public string Location { get; set; }
     }
 }

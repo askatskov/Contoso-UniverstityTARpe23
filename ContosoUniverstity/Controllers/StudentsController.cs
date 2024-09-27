@@ -85,14 +85,14 @@ namespace ContosoUniverstity.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            return View();
+            return View();     
         }
 
         //create meetod, sisestab andmebaasi uue õpilase. insert new student into database
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,LastName,FirstMidName,EnrollmentDate")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,LastName,FirstMidName,EnrollmentDate")]Student student)
         {
             if (ModelState.IsValid)
             {
