@@ -44,7 +44,17 @@ namespace ContosoUniverstity.Controllers
 
             return View(delinquent);
         }
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if(id == null) return NotFound();
 
+            var delinquent = await _context.Delinquents.FindAsync(id);
+            if (delinquent != null) return NotFound();
+            return View(delinquent);
+
+            }
+        
+
+        }
 
     }
-}
