@@ -18,7 +18,25 @@ namespace ContosoUniverstity.Controllers
             var delinquents = await _context.Delinquents.ToListAsync();
             return View(delinquents);
         }
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ID, LastName, FirstMidName, Violation")]Delinquent delinquent)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Delinquents.Add(delinquent);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(delinquent);
+        }
 
+        
 
     }
 }
