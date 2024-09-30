@@ -59,31 +59,7 @@ namespace ContosoUniverstity.Controllers
             ViewData["InstructorID"] = new SelectList(_context.Instructors, "Id", "FullName", department.InstructorId);
             return View(department);
         }
-        public async Task<IActionResult> BaseOn(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            var department = await _context.Departments
-                .AsNoTracking()
-                .FirstOrDefaultAsync(m => m.DepartmentID == id);
-            if (department == null)
-            {
-                return NotFound();
-            }
-            var newDepartment = new Department
-            {
-                Name = department.Name,
-                Budget = department.Budget,
-                StartDate = DateTime.Now,
-                InstructorId = department.InstructorId,
-                Aadress = department.Aadress,
-            };
-            ViewData["InstructorID"] = new SelectList(_context.Instructors, "Id", "FullName", newDepartment.InstructorId);
-            return View("Create", newDepartment);
 
-        }
     }
 }
 //llpasfsafasf
