@@ -27,19 +27,20 @@ namespace ContosoUniverstity.Controllers
             {
                 return NotFound();
             }
-            string query = "SELECT * FROM Department WHERE DepartmentID = {0}";
+
             var department = await _context.Departments
-                .FromSqlRaw(query, id)
-                .Include(d => d.Administrator)
-                .AsNoTracking()
                 .FirstOrDefaultAsync();
+
             if (department == null)
             {
                 return NotFound();
             }
             return View(department);
         }
-        [HttpGet]
+
+
+    
+    [HttpGet]
         public IActionResult Create()
         {
             ViewData["InstructorID"] = new SelectList(_context.Instructors, "Id", "FullName");
