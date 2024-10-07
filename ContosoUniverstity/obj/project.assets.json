@@ -4149,24 +4149,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\opilane\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\awesa\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\opilane\\Source\\Repos\\Contoso-UniverstityTARpe231\\ContosoUniverstity\\ContosoUniverstity.csproj",
+      "projectUniqueName": "C:\\Users\\awesa\\source\\repos\\Contoso-UniverstityTARpe23\\ContosoUniverstity\\ContosoUniverstity.csproj",
       "projectName": "ContosoUniverstity",
-      "projectPath": "C:\\Users\\opilane\\Source\\Repos\\Contoso-UniverstityTARpe231\\ContosoUniverstity\\ContosoUniverstity.csproj",
-      "packagesPath": "C:\\Users\\opilane\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\opilane\\Source\\Repos\\Contoso-UniverstityTARpe231\\ContosoUniverstity\\obj\\",
+      "projectPath": "C:\\Users\\awesa\\source\\repos\\Contoso-UniverstityTARpe23\\ContosoUniverstity\\ContosoUniverstity.csproj",
+      "packagesPath": "C:\\Users\\awesa\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\awesa\\source\\repos\\Contoso-UniverstityTARpe23\\ContosoUniverstity\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\opilane\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\awesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4236,7 +4231,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

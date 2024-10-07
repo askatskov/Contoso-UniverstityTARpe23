@@ -142,7 +142,61 @@ namespace ContosoUniverstity.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> BaseOn(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
+            var department = await _context.Departments.FindAsync(id);
+            if (department == null)
+            {
+                return NotFound();
+            }
+
+            ViewData["InstructorId"] = new SelectList(_context.Instructors, "Id", "FullName");
+            return View(department);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> BaseOn(int id, [Bind("DepartmentID,Name,Budget,StartDate,Aadress,InstructorId")] Department department, string actionType)
+        {
+            if (id != department.DepartmentID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                var newDepartment = new Department
+                {
+                    Name = department.Name,
+                    Budget = department.Budget,
+                    StartDate = department.StartDate,
+                    Aadress = department.Aadress,
+                    InstructorId = department.InstructorId
+                };
+
+                _context.Add(newDepartment);
+                await _context.SaveChangesAsync();
+
+                if (actionType == "Make & Delete Old")
+                {
+                    var oldDepartment = await _context.Departments.FindAsync(id);
+                    if (oldDepartment != null)
+                    {
+                        _context.Departments.Remove(oldDepartment);
+                        await _context.SaveChangesAsync();
+                    }
+                }
+
+                return RedirectToAction(nameof(Index));
+            }
+
+            ViewData["InstructorId"] = new SelectList(_context.Instructors, "Id", "FullName", department.InstructorId);
+            return View(department);
+        }
     }
 }
 
