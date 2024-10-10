@@ -203,43 +203,7 @@ namespace ContosoUniverstity.Controllers
             return View(instructor);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var instructor = await _context.Instructors
-                .Include(i => i.OfficeAssignment)
-                .FirstOrDefaultAsync(m => m.Id == id);
-
-            if (instructor == null)
-            {
-                return NotFound();
-            }
-
-            return View(instructor);
-        }
-
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var instructor = await _context.Instructors
-                .Include(i => i.CourseAssignments)
-                .FirstOrDefaultAsync(i => i.Id == id);
-
-            if (instructor == null)
-            {
-                return NotFound();
-            }
-
-            _context.Instructors.Remove(instructor);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
 
         [HttpGet]
         public async Task<IActionResult> Clone(int? id)
