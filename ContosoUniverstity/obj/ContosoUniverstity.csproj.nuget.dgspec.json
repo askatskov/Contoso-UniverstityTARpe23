@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\awesa\\source\\repos\\Contoso-UniverstityTARpe231\\ContosoUniverstity\\ContosoUniverstity.csproj": {}
+    "C:\\Users\\awesa\\Source\\Repos\\Contoso-UniverstityTARpe232\\ContosoUniverstity\\ContosoUniverstity.csproj": {}
   },
   "projects": {
-    "C:\\Users\\awesa\\source\\repos\\Contoso-UniverstityTARpe231\\ContosoUniverstity\\ContosoUniverstity.csproj": {
+    "C:\\Users\\awesa\\Source\\Repos\\Contoso-UniverstityTARpe232\\ContosoUniverstity\\ContosoUniverstity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\awesa\\source\\repos\\Contoso-UniverstityTARpe231\\ContosoUniverstity\\ContosoUniverstity.csproj",
+        "projectUniqueName": "C:\\Users\\awesa\\Source\\Repos\\Contoso-UniverstityTARpe232\\ContosoUniverstity\\ContosoUniverstity.csproj",
         "projectName": "ContosoUniverstity",
-        "projectPath": "C:\\Users\\awesa\\source\\repos\\Contoso-UniverstityTARpe231\\ContosoUniverstity\\ContosoUniverstity.csproj",
+        "projectPath": "C:\\Users\\awesa\\Source\\Repos\\Contoso-UniverstityTARpe232\\ContosoUniverstity\\ContosoUniverstity.csproj",
         "packagesPath": "C:\\Users\\awesa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\awesa\\source\\repos\\Contoso-UniverstityTARpe231\\ContosoUniverstity\\obj\\",
+        "outputPath": "C:\\Users\\awesa\\Source\\Repos\\Contoso-UniverstityTARpe232\\ContosoUniverstity\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\awesa\\AppData\\Roaming\\NuGet\\NuGet.Config",
