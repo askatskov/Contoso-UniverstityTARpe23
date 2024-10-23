@@ -46,15 +46,52 @@ namespace ContosoUniverstity.Controllers
         }
         public async Task<IActionResult> Edit(int? id)
         {
-            if(id == null) return NotFound();
+            if (id == null)
+            {
+                return NotFound();
+            }
 
             var delinquent = await _context.Delinquents.FindAsync(id);
-            if (delinquent != null) return NotFound();
-            return View(delinquent);
+            if (delinquent != null)
 
+            {
+                return NotFound();
             }
-        
-
+            return View(delinquent);
         }
-
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult>Edit(int id, Delinquent delinquent)
+        {
+            if (id != delinquent.ID)
+            {
+                return NotFound();
+            }
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(delinquent);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!DelinquentExists(delinquent.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(delinquent);
+        }
+        private bool DelinquentExists(int id)
+        {
+            throw new NotImplementedException();
+        }
     }
+}
