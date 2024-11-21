@@ -62,7 +62,7 @@ namespace ContosoUniverstity.Controllers
 
 		public async Task<IActionResult> CreateEdit(Course course)
 		{
-			if (!ModelState.IsValid)
+			if (ModelState.IsValid)
 			{
 				if (course.CourseID == 0)
 				{
@@ -86,7 +86,7 @@ namespace ContosoUniverstity.Controllers
 			ViewBag.Description = course.CourseID == 0 ? "Create a new course" : "Edit course details";
 			return View(course);
 		}
-		[HttpPost]
+		[HttpGet]
 		public async Task<IActionResult> Delete(int? id)
 		{
 			if (id == null)
@@ -108,7 +108,7 @@ namespace ContosoUniverstity.Controllers
 		[HttpPost, ActionName("Delete")]
 		[ValidateAntiForgeryToken]
 
-		public async Task<IActionResult> DeleteConfiremd(int CourseID)
+		public async Task<IActionResult> DeleteConfirmed(int CourseID)
 		{
 			var course = await _context.Courses.FindAsync(CourseID);
 			if (course == null)
