@@ -1,6 +1,7 @@
 ﻿using ContosoUniverstity.Models;
 using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace ContosoUniverstity.Data
 {
