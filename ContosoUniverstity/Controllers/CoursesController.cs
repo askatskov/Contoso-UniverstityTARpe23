@@ -86,6 +86,40 @@ namespace ContosoUniverstity.Controllers
 			ViewBag.Description = course.CourseID == 0 ? "Create a new course" : "Edit course details";
 			return View(course);
 		}
+		[HttpPost]
+		public async Task<IActionResult> Delete(int? id)
+		{
+			if (id == null)
+			{
+				return NotFound();
+			}
+
+			var course = await _context.Courses.FirstOrDefaultAsync(m => m.CourseID == id);
+			if (course == null)
+			{
+				return NotFound();
+			}
+
+			ViewBag.Title = "Delete Course";
+			return View("DetailsDelete", course);
+
+		}
+
+		[HttpPost, ActionName("Delete")]
+		[ValidateAntiForgeryToken]
+
+		public async Task<IActionResult> DeleteConfiremd(int CourseID)
+		{
+			var course = await _context.Courses.FindAsync(CourseID);
+			if (course == null)
+			{
+				return NotFound();
+			}
+
+			_context.Courses.Remove(course);
+			await _context.SaveChangesAsync();
+			return RedirectToAction("Index");
+		}
 	}
 }
 
