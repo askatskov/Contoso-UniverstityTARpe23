@@ -39,6 +39,53 @@ namespace ContosoUniverstity.Controllers
 			ViewBag.Title = name == "Details" ? "Course Details" : "Delete Course";
 			return View(course);
 		}
+		[HttpGet]
+		public async Task<IActionResult> CreateEdit(int? id)
+		{
+			if (id == null)
+			{
+				ViewBag.Title = "Create";
+				ViewBag.Description = "Create a new course";
+				return View();
+			}
+			var course = awiat _context.Courses.FindAsync(id);
+			if (course == null)
+			{
+				return NotFound();
+			}
+			ViewBag.Title = "Edit";
+			ViewBag.Description = "Edit course details";
+			return View(course);
+		}
+		[HttpPost]
+		[ValidateAntiForgeryToken]
+
+		public async Task<IActionResult> CreateEdit(Course course)
+		{
+			if (!ModelState.IsValid)
+			{
+				if (course.CourseID == 0)
+				{
+					int biggestCourseID = await _context.Courses.AnyAsync()
+						? await _context.Courses.MaxAsync(c => c.CourseID)
+						: 0;
+
+					course.CourseID = biggestCourseID + 1;
+					_context.Add(course);
+					await _context.SaveChangesAsync();
+				}
+				else
+				{
+					_context.Update(course);
+					await _context.SaveChangesAsync();
+				}
+				return RedirectToAction("Index");
+			}
+
+			ViewBag.Title = course.CourseID == 0 ? "Create" : "Edit";
+			ViewBag.Description = course.CourseID == 0 ? "Create a new course" : "Edit course details";
+			return View(course);
+		}
 	}
 }
 
