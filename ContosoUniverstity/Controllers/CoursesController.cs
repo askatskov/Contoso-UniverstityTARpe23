@@ -48,7 +48,7 @@ namespace ContosoUniverstity.Controllers
 				ViewBag.Description = "Create a new course";
 				return View();
 			}
-			var course = awiat _context.Courses.FindAsync(id);
+			var course = await _context.Courses.FindAsync(id);
 			if (course == null)
 			{
 				return NotFound();
@@ -117,6 +117,28 @@ namespace ContosoUniverstity.Controllers
 			}
 
 			_context.Courses.Remove(course);
+			await _context.SaveChangesAsync();
+			return RedirectToAction("Index");
+		}
+
+		public async Task<IActionResult> Clone(int? id)
+		{
+			if (id == null)
+			{
+				return NotFound();
+			}
+			var course = await _context.Courses.FindAsync(id);
+			if (course == null)
+			{
+				return NotFound();
+			}
+
+			var clonedCourse = new Course
+			{
+				Title = course.Title,
+				Credits = course.Credits
+			};
+			_context.Add(clonedCourse);
 			await _context.SaveChangesAsync();
 			return RedirectToAction("Index");
 		}
