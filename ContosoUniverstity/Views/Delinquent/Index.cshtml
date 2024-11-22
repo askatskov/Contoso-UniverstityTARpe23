@@ -21,10 +21,10 @@
         @foreach (var delinquent in Model)
         {
             <tr>
-                <td>>@Html.DisplayFor(model => delinquent.ID)</td>
-                <td>>@Html.DisplayFor(model => delinquent.FirstMidName)</td>
-                <td>>@Html.DisplayFor(model => delinquent.LastName)</td>
-                <td>>@Html.DisplayFor(model => delinquent.Violation)</td>
+                <td>@Html.DisplayFor(model => delinquent.ID)</td>
+                <td>@Html.DisplayFor(model => delinquent.FirstMidName)</td>
+                <td>@Html.DisplayFor(model => delinquent.LastName)</td>
+                <td>@Html.DisplayFor(model => delinquent.Violation)</td>
                 <td>
                     <a asp-action="Details" asp-route-id="@delinquent.ID" class="btn btn-dark">Details</a>
                     <a asp-action="Edit" asp-route-id="@delinquent.ID" class="btn btn-dark">Edit</a>

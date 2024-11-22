@@ -25,7 +25,7 @@ namespace ContosoUniverstity.Controllers
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID, LastName, FirstMidName, Violation")]Delinquent delinquent)
+        public async Task<IActionResult> Create([Bind("LastName, FirstMidName, Violation")]Delinquent delinquent)
         {
             if (ModelState.IsValid)
             {
