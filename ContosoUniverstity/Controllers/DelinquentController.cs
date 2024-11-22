@@ -5,11 +5,11 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ContosoUniverstity.Controllers
 {
-    public class DelinquetController : Controller
+    public class DelinquentController : Controller
     {
         public readonly SchoolContext _context;
 
-        public DelinquetController(SchoolContext context)
+        public DelinquentController(SchoolContext context)
         {
             _context = context;
         }

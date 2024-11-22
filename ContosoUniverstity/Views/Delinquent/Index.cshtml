@@ -1,0 +1,37 @@
+﻿@model IEnumerable<ContosoUniverstity.Models.Delinquent>
+@{
+    ViewData["Title"] = "Delinquent";
+}
+<h1>Delinquent</h1>
+<p>
+    <a asp-action="Create">Make a new delinquent</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.ID)</th>
+            <th>@Html.DisplayNameFor(model => model.FirstMidName)</th>
+            <th>@Html.DisplayNameFor(model => model.LastName)</th>
+            <th>@Html.DisplayNameFor(model => model.Violation)</th>
+            <th>Available actions: </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var delinquent in Model)
+        {
+            <tr>
+                <td>>@Html.DisplayFor(model => delinquent.ID)</td>
+                <td>>@Html.DisplayFor(model => delinquent.FirstMidName)</td>
+                <td>>@Html.DisplayFor(model => delinquent.LastName)</td>
+                <td>>@Html.DisplayFor(model => delinquent.Violation)</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@delinquent.ID" class="btn btn-dark">Details</a>
+                    <a asp-action="Edit" asp-route-id="@delinquent.ID" class="btn btn-dark">Edit</a>
+                    <a asp-action="Clone" asp-route-id="@delinquent.ID" class="btn btn-dark">Clone</a>
+                    <a asp-action="Delete" asp-route-id="@delinquent.ID" class="btn btn-dark">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
