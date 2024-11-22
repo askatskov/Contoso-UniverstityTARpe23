@@ -44,6 +44,7 @@ namespace ContosoUniverstity.Controllers
 
             return View(delinquent);
         }
+        [HttpGet]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -52,7 +53,7 @@ namespace ContosoUniverstity.Controllers
             }
 
             var delinquent = await _context.Delinquents.FindAsync(id);
-            if (delinquent != null)
+            if (delinquent == null)
 
             {
                 return NotFound();
