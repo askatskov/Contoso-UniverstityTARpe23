@@ -122,5 +122,26 @@ namespace ContosoUniverstity.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+        public async Task<IActionResult> Clone(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var delinquent = await _context.Delinquents.
+                FirstOrDefaultAsync(m => m.ID == id);
+            if (delinquent == null)
+            {
+                return NotFound();
+            }
+            var clonedDelinquent = new Delinquent
+            {
+                FirstMidName = delinquent.FirstMidName,
+                LastName = delinquent.LastName,
+                Violation = delinquent.Violation,
+            };
+            return View("Clone", clonedDelinquent);
+        }
     }
 }
